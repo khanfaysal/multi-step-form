@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import SignUpInfo from "./SignUpInfo";
 import PersonalInfo from "./PersonalInfo";
 import OtherInfo from "./OtherInfo";
+import LoginInfo from "./LoginInfo";
 
 function Form() {
   const [page, setPage] = useState(0);
@@ -16,15 +17,17 @@ function Form() {
     other: "",
   });
 
-  const FormTitles = ["Sign Up", "Personal Info", "Other"];
+  const FormTitles = ["Sign Up", "Personal Info", "Other","Log In"];
 
   const PageDisplay = () => {
     if (page === 0) {
       return <SignUpInfo formData={formData} setFormData={setFormData} />;
     } else if (page === 1) {
       return <PersonalInfo formData={formData} setFormData={setFormData} />;
-    } else {
+    } else if (page === 2) {
       return <OtherInfo formData={formData} setFormData={setFormData} />;
+    } else {
+      return <LoginInfo formData={formData} setFormData={setFormData} />;
     }
   };
 
